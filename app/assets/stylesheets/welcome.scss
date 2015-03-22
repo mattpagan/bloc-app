@@ -2,3 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+ .social-btn {
+   position: absolute;
+   border: solid 1px #000000;
+   margin: 20px 10px 10px 20px;
+   padding: 10px;
+   text-align: center;
+   font: 18px arial, sans-serif;
+   color: #fff;
+   background-color: #ff0000;
+   }
