@@ -1,11 +1,10 @@
 == README
 
-## Bloccit: a Reddit replica to teach the fundamentals of web development and Rails.
+## popsmoke: didn't see the "you can name your app "yourname-bloccit" part.
 
 Made with my mentor Bridget at [Bloc](http://bloc.io).
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[popsmoke](https://git.heroku.com/popsmoke.git)
 
 Things you may want to cover:
 
