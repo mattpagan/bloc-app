@@ -29,6 +29,9 @@ gem 'bootstrap-sass'
 # Add PRY
 gem 'pry-rails', :group => :development
 
+# Add Devise
+gem 'devise'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
