@@ -27,6 +27,7 @@
      body:   Faker::Lorem.paragraph
    )
    Post.create(
+   user: users.sample,
 	 title: "your title", 
 	 body: "your body"
    ) unless Post.where(title: "your title", body: "your body").present? #check db for this title and body
@@ -48,7 +49,7 @@
  user = User.first
  user.skip_reconfirmation!
  user.update_attributes!(
-   email: 'mattpagan20@gmail.com',
+   email: 'youremail.com',
    password: 'helloworld'
  )
  
