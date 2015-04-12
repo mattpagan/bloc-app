@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
  devise_for :users
- resources :posts
+ resources :posts, :questions
 
   get 'welcome/contact'
   get 'about' => 'welcome#about'
