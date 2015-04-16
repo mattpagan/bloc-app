@@ -28,12 +28,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass'
 # Add PRY
 gem 'pry-rails', :group => :development
-
 # Add Devise
 gem 'devise'
-
 # Add Figaro
 gem 'figaro', '1.0'
+# Add Pundit
+gem 'pundit'
 
 
 # Use ActiveModel has_secure_password
