@@ -1,11 +1,7 @@
 class PostsController < ApplicationController
   before_action :configure_permitted_parameters, if: :devise_controller?
- 
-  # protected
- 
-  def configure_permitted_parameters
-     devise_parameter_sanitizer.for(:sign_up) << :name
-  end
+  before_action :flash_attack
+
 
   def index
   	@posts = Post.all
@@ -43,5 +39,15 @@ class PostsController < ApplicationController
        flash[:error] = "There was an error saving the post. Please try again."
        render :edit
      end
+  end
+
+  private
+ 
+  def configure_permitted_parameters
+     devise_parameter_sanitizer.for(:sign_up) << :name
+  end
+
+  def flash_attack
+    flash[:notice] = "This is my notice"
   end
 end
