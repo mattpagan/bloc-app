@@ -1,12 +1,4 @@
 class PostsController < ApplicationController
-  before_action :configure_permitted_parameters, if: :devise_controller?
-
- 
-  protected
- 
-  def configure_permitted_parameters
-     devise_parameter_sanitizer.for(:sign_up) << :name
-  end
 
   def index
   	@posts = Post.all
@@ -21,7 +13,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params.require(:post).permit(:title, :body))
+    @post = current_user.posts.build(params.require(:post).permit(:title, :body))
+
     if @post.save
        flash[:notice] = "Post was saved."
        redirect_to @post
