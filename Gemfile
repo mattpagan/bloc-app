@@ -26,8 +26,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 # Adding bootstrap-sass gem
 gem 'bootstrap-sass'
-# Add PRY
-gem 'pry-rails', :group => :development
 # Add Devise
 gem 'devise'
 # Add Pundit
