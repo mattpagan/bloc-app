@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 	devise_for :users
 	resources :topics do
 		resources :posts, except: [:index]
+			resource :summary, only: [:create, :show]
 	end
 
 	get 'about' => 'welcome#about'
