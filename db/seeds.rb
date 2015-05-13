@@ -29,35 +29,27 @@
  end
  topics = Topic.all
 
- # Create Posts
- 50.times do
-   Post.create!(
-     title:  Faker::Lorem.sentence,
-     body:   Faker::Lorem.paragraph
-   )
-   Post.create(
-   user: users.sample,
-   topic: topics.sample,
-	 title: "your title", 
-	 body: "your body"
-   ) unless Post.where(title: "your title", body: "your body").present? #check db for this title and body
- end
+# Create Posts
+50.times do
+  Post.create!(
+    user:   users.sample,
+    topic: topics.sample,
+    title:  Faker::Lorem.sentence,
+    body:   Faker::Lorem.paragraph
+  )
+end
+posts = Post.all
 
- posts = Post.all
+# Create Comments
+100.times do
+  Comment.create!(
+     # user: users.sample,   # we have not yet associated Users with Comments
+    post: posts.sample,
+    body: Faker::Lorem.paragraph
+  )
+end
  
- # Create Comments
- 100.times do
-   Comment.create!(
-     post: posts.sample,
-     body: Faker::Lorem.paragraph
-   )
-   Comment.create(
-	 title: "your title", 
-	 body: "your body"
-   ) unless Post.where(title: "your title", body: "your body").present?
- end
- 
- # Create an admin user
+# Create an admin user
  admin = User.new(
    name:     'Admin User',
    email:    'admin@example.com',
