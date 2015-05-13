@@ -32,6 +32,8 @@ gem 'devise'
 gem 'pundit'
 # Add Figaro
 gem 'figaro', '1.0'
+# Redcarpet
+gem 'redcarpet'
 
 
 # Use ActiveModel has_secure_password
