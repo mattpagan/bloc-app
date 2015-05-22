@@ -1,1 +1,0 @@
-Bloccit::Application.config.secret_key_base = ENV['SECRET_KEY_BASE'] || '7ec0319174b4fcd9ab8401c306bad1047856357fb9e20da5d282c2d3103ccf0e1d3ac12ec8bfaf3d7ad8e77f42f639e442a07eff318dc56e5817fd9bc122c87f'
