@@ -31,17 +31,20 @@
 
  # Create Posts
  50.times do
-   Post.create!(
+  Post.create!(
+     user: users.sample,
+     topic: topics.sample,
      title:  Faker::Lorem.sentence,
      body:   Faker::Lorem.paragraph
    )
-   Post.create(
+  end
+  Post.create(
    user: users.sample,
    topic: topics.sample,
 	 title: "your title", 
 	 body: "your body"
    ) unless Post.where(title: "your title", body: "your body").present? #check db for this title and body
- end
+  end
 
  posts = Post.all
  
