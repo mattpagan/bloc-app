@@ -12,14 +12,6 @@
  end
  users = User.all
  
- # Note: by calling `User.new` instead of `create`,
- # we create an instance of User which isn't immediately saved to the database.
- 
- # The `skip_confirmation!` method sets the `confirmed_at` attribute
- # to avoid triggering an confirmation email when the User is saved.
- 
- # The `save` method then saves this User to the database.
- 
  # Create Topics
  15.times do
    Topic.create!(
@@ -32,10 +24,10 @@
  # Create Posts
  50.times do
   Post.create!(
-     user: users.sample,
-     topic: topics.sample,
-     title:  Faker::Lorem.sentence,
-     body:   Faker::Lorem.paragraph
+   user: users.sample,
+   topic: topics.sample,
+   title:  Faker::Lorem.sentence,
+   body:   Faker::Lorem.paragraph
   )
   Post.create(
    user: users.sample,
@@ -51,8 +43,8 @@ end
  100.times do
    Comment.create!(
     # user: users.sample,   # we have not yet associated Users with Comments
-     post: posts.sample,
-     body: Faker::Lorem.paragraph
+    post: posts.sample,
+    body: Faker::Lorem.paragraph
    )
    Comment.create(
 	 title: "your title", 
@@ -88,14 +80,6 @@ end
  )
  member.skip_confirmation!
  member.save!
-
- # Create own email address
- user = User.first
- user.skip_reconfirmation!
- user.update_attributes!(
-   email: 'matthew.pagan@me.com',
-   password: 'helloworld'
- )
 
  puts "Seed finished"
  puts "#{User.count} users created"
