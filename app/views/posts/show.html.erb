@@ -7,9 +7,15 @@
        submitted <%= time_ago_in_words(@post.created_at) %> ago by
        <%= @post.user.name %>
  	</small>
+  <%if @post.image? %>
+       <div class="form-group">
+         <p>Current Post Image</p>
+         <%= image_tag @post.image.url(:bigger) %>
+       </div>
+  <% end %>
     <p><%= markdown @post.body %></p>
   </div>
-  <div class="col-md-4">
+    <div class="col-md-4">
     <% if policy(@post).edit? %>
       <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
     <% end %>
