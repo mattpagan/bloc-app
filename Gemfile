@@ -32,6 +32,9 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'figaro', '1.0'
 gem 'redcarpet'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
 
 group :doc do
   gem 'sdoc', require: false
