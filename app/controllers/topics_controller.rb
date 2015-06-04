@@ -34,13 +34,12 @@ class TopicsController < ApplicationController
    	def update
      @topic = Topic.find(params[:id])
      authorize @topic
-     	if @topic.update_attributes(post_params)
-        flash[:notice] = "Topic was successfully updated"
+     if @topic.update_attributes(post_params)
+        redirect_to @topic
      	else
        	flash[:error] = "Error saving topic. Please try again."
-     	end
-
-      render :edit
+        render :edit
+     	end  
    	end
     
     private
