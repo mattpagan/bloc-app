@@ -42,7 +42,6 @@ end
  # Create Comments
  100.times do
    Comment.create!(
-    # user: users.sample,   # we have not yet associated Users with Comments
     user: users.sample,
     post: posts.sample,
     body: Faker::Lorem.paragraph
@@ -84,6 +83,6 @@ end
 
  puts "Seed finished"
  puts "#{User.count} users created"
-  puts "#{Topic.count} users created"
+ puts "#{Topic.count} users created"
  puts "#{Post.count} posts created"
  puts "#{Comment.count} comments created"
