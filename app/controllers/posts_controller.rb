@@ -29,6 +29,7 @@ class PostsController < ApplicationController
        flash[:error] = "There was an error saving the post. Please try again."
        render :new
     end
+  
   end
 
   def update
@@ -43,6 +44,7 @@ class PostsController < ApplicationController
       flash[:error] = "There was an error saving the post. Please try again."
       render :edit
     end
+  
   end
 
   private
