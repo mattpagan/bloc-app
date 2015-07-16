@@ -1,11 +1,9 @@
-<% if current_user && policy(Comment.new).create? %>
-  <h4>Add a comment:</h4>
-  <%= form_for [post, post.comments.new] do |f| %>
-    <div class="form-group">
-      <%= f.label :body %>
-      <%= f.text_area :body, class: 'form-control', placeholder: "Enter a comment" %>
-      <br>
-      <%= f.submit "Add Comment", class: 'btn btn-primary' %>
-    </div>
-  <% end %>
+<h4>Add a comment:</h4>
+<%= form_for [post, post.comments.new] do |f| %>
+	<div class="form-group">
+	  <%= f.label :body %>
+	  <%= f.text_area :body, class: 'form-control', placeholder: "Enter a comment" %>
+	  <br>
+	  <%= f.submit "Add Comment", class: 'btn btn-primary' %>
+	</div>
 <% end %>
