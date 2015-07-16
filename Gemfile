@@ -22,6 +22,8 @@ group :development, :test do
 
   # Install rails ERD
   gem "rails-erd"
+
+  gem 'rspec-rails', '~> 3.0'
 end
 
 gem 'sass-rails', '~> 5.0'
