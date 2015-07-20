@@ -23,20 +23,16 @@
 
  # Create Posts
  50.times do
-  Post.create!(
+  post = Post.create!(
    user: users.sample,
    topic: topics.sample,
    title:  Faker::Lorem.sentence,
    body:   Faker::Lorem.paragraph
   )
-  Post.create(
-   user: users.sample,
-   topic: topics.sample,
-	 title: "your title", 
-	 body: "your body"
-   ) unless Post.where(title: "your title", body: "your body").present? #check db for this title and body
-end
-
+  # set the created_at to a time within the past year
+  post.update_attributes!(created_at: rand(10.minutes .. 1.year).ago)
+  post.update_rank
+ end
  posts = Post.all
  
  # Create Comments
@@ -45,11 +41,7 @@ end
     user: users.sample,
     post: posts.sample,
     body: Faker::Lorem.paragraph
-   )
-   Comment.create(
-	 title: "your title", 
-	 body: "your body"
-   ) unless Post.where(title: "your title", body: "your body").present?
+    )
  end
  
  # Create an admin user
@@ -58,7 +50,7 @@ end
    email:    'admin@example.com',
    password: 'helloworld',
    role:     'admin'
- )
+   )
  admin.skip_confirmation!
  admin.save!
  
@@ -68,7 +60,7 @@ end
    email:    'moderator@example.com',
    password: 'helloworld',
    role:     'moderator'
- )
+   )
  moderator.skip_confirmation!
  moderator.save!
  
@@ -77,7 +69,7 @@ end
    name:     'Member User',
    email:    'member@example.com',
    password: 'helloworld'
- )
+   )
  member.skip_confirmation!
  member.save!
 

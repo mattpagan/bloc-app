@@ -14,13 +14,22 @@
  *= require_self
  */
  
- @import "bootstrap-sprockets";
- 
- @import "bootstrap";
- 	.user-info {
-   	margin-top: 9px;
- }
- 
- .nav {
-   margin-top: 5px;
- }
+@import "bootstrap-sprockets";
+@import "bootstrap";
+ 	
+.user-info {
+ 	margin-top: 9px;
+}
+
+.nav {
+ 	margin-top: 5px;
+}
+
+.col-sm-4, .col-md-4, .col-lg-4 {
+	margin-top: 20px;
+}
+
+.vote-arrows {
+  	width: 40px;
+  	text-align: center;
+}
