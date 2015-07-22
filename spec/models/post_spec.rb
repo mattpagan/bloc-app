@@ -8,6 +8,7 @@ describe Post do
  
     before do
       @post = associated_post
+      
       3.times { @post.votes.create(value: 1) }
       2.times { @post.votes.create(value: -1) }
     end
