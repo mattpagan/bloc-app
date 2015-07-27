@@ -38,6 +38,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 gem 'will_paginate', '~> 3.0.5'
+gem 'capybara'
 
 group :doc do
   gem 'sdoc', require: false
