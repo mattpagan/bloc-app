@@ -16,20 +16,19 @@ require 'rails_helper'
      # We don't need to change anything for this condition;
      # The email_favorites attribute defaults to true
      context "with user's permission" do
- 
-     it "sends an email to users who have favorited the post" do
-       favorite = @user.favorites.create(post: @post)
- 
-       allow( FavoriteMailer )
-         .to receive(:new_comment)
-         .with(@user, @post, @comment)
-         .and_return( double(deliver_now: true) )
-
-         expect( FavoriteMailer )
+       it "sends an email to users who have favorited the post" do
+         FavoriteMailer.new_comment(favorite.user, post, self).deliver_now
+   
+         allow( FavoriteMailer )
            .to receive(:new_comment)
- 
-       @comment.save
-     end
+           .with(@user, @post, @comment)
+           .and_return( double(deliver_now: true) )
+
+           expect( FavoriteMailer )
+             .to receive(:new_comment)
+   
+         @comment.save
+       end
  
      it "does not send emails to users who haven't" do
        expect( FavoriteMailer )
@@ -39,18 +38,17 @@ require 'rails_helper'
      end
    end
 
-   context "without permission" do
+     context "without permission" do
 
-     before { @user.update_attribute(:email_favorites, false) }
+       before { @user.update_attribute(:email_favorites, false) }
 
-     it "does not send emails, even to users who have favorited" do
-       @user.favorites.where(post: @post).create
+       it "does not send emails, even to users who have favorited" do
+         @user.favorites.where(post: @post).create
 
-       expect( FavoriteMailer )
-         .not_to receive(:new_comment)
+         expect( FavoriteMailer )
+           .not_to receive(:new_comment)
 
-       @comment.save
-     end
-   end
-  end
+         @comment.save
+       end
+    end
 end
