@@ -1,16 +1,14 @@
-<h2>Edit Post</h2>
+<h2>Edit Topic</h2>
    
  <div class="row">
    <div class="col-md-4">
-    <p>Guidelines for Posts</p>
+    <p>Guidelines for Topics:</p>
      <ul>
        <li>Topics must be atleast 5 characters.</li>
        <li>Make sure the topic is appropriate.</li>
-       <li>Never insult dogs.</li>
-       <li>Smile when you type.</li>
      </ul>
    </div>
    <div class="col-md-8">
-     <%= render partial: 'form', locals: { topic: @topic } %>
-   </div>
- </div>
+     <%= render partial: 'form', locals: { topic: @topic, post: @post } %>
+  </div>
+</div>
