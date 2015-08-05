@@ -20,6 +20,8 @@ group :development, :test do
 
   gem 'sqlite3'
 
+  gem 'newrelic_rpm'
+
   # Install rails ERD
   gem "rails-erd"
 
