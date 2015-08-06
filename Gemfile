@@ -6,9 +6,13 @@ gem 'rails', '4.2.0'
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+  gem 'puma'
 end
 
 group :development, :test do
+  
+  gem 'factory_girl_rails', '~> 4.0'
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
@@ -19,6 +23,8 @@ group :development, :test do
   gem 'spring'
 
   gem 'sqlite3'
+
+  gem 'newrelic_rpm'
 
   # Install rails ERD
   gem "rails-erd"
@@ -39,6 +45,8 @@ gem 'mini_magick'
 gem 'fog'
 gem 'will_paginate', '~> 3.0.5'
 gem 'capybara'
+gem 'puma'
+gem 'thin'
 
 group :doc do
   gem 'sdoc', require: false
