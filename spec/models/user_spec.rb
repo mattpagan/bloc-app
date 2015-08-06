@@ -38,4 +38,17 @@ require 'rails_helper'
        expect( users.first.comments_count ).to eq(2)
      end
    end
- end
+
+   describe "FactoryGirl.user_with_post_and_comment" do
+
+     before do
+       @user = create(:user_with_post_and_comment)
+     end
+   		   
+     it "test a FactoryGirl method" do
+        expect( Post.where(user_id: @user.id).count ).to eq(1)
+        expect( Comment.where(user_id: @user.id).count ).to eq(1)
+     end
+   end
+end
+   
